@@ -3,7 +3,9 @@
 
 
 {% for i in result %}
-<br><a href="/profiles/show/{{i.id}}">{{ i.nickname }}</a>
+<br><a> {{ i.nickname }}</a>
+<button onclick="window.location.href='/profiles/edit/{{i.id}}'" type="button">Edit</button>
+<button onclick="window.location.href='/profiles/show/{{i.id}}'" type="button">Show</button>
 <br>{{ i.login }}
 <br><a>______</a>
 {% endfor %}
