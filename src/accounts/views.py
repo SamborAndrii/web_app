@@ -40,10 +40,15 @@ class ProfileEditView(LoginRequiredMixin, UpdateView):
         if self.request.user != kwargs['instance'].user \
                 and not(self.request.user.groups.filter(name='admin_application').exists()):
             return self.handle_no_permission()
+
+        # if kwargs['instance'].age > 18:
+        #     print('drink alcohol')
+        # else:
+        #     print('come back home')
         return kwargs
 
     def get_success_url(self):
-        return reverse('accounts:list')
+        return reverse('profiles:list')
 
 
 class ProfileCreateView(PermissionRequiredMixin, CreateView):
